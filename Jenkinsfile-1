@@ -1,11 +1,11 @@
 pipeline {
   agent any
   tools {
-  maven 'maven_3_5_2'
+  maven 'maven-3.5.2'
   }
 
   stages {
-    stage {'Run SAST Scan'} {
+    stage ('Run SAST Scan') {
       steps {
         sh 'mvn clean verify sonar:sonar -Dsonar.projectkey=demo-proj-sast -Dsonar.organization=dso-demo-sast -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=e0cbff0a1fb6052f7319b8c2ead4bf7c17594cd4'
       }
